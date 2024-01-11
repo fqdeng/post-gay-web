@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
+import MessageBoxResult from "../common/MessageBoxResult";
+
 
 function Counter() {
     const [count, setCount] = useState(0);
     const [filePath, setFilePath] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleIncrement = () => {
         if (window.app) {
@@ -11,18 +14,34 @@ function Counter() {
         setCount(count + 1);
     };
 
-    const handleOpenFile = (json: JSON) => {
-        setFilePath(JSON.stringify(json))
-    }
-
 
     const openFile = () => {
         if (window.app) {
             const filePath = window.python.openFile()
-        }else{
+            filePath.then((result: string) => {
+                setFilePath(result);
+                console.log(result);
+            })
+        } else {
             alert("It's in browser environment!")
         }
-        window.setFilePath = handleOpenFile;
+    }
+
+
+    const showMessageBox = () => {
+        if (window.app) {
+            const message = window.python.showMessageBox("Tite", "Message")
+            message.then((result: MessageBoxResult) => {
+                if (result == MessageBoxResult.Cancel) {
+                    console.log("Cancel")
+                }
+                if (result == MessageBoxResult.Ok) {
+                    console.log("Ok")
+                }
+            })
+        } else {
+            alert("It's in browser environment!")
+        }
     }
 
     return (
@@ -35,6 +54,7 @@ function Counter() {
             <button onClick={openFile}>
                 OpenFile
             </button>
+            <button onClick={showMessageBox}>shoMessage</button>
         </div>
     );
 }

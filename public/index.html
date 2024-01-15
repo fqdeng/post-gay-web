@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="theme-color" content="#000000"/>
     <meta
             name="description"
-            content="Web site created using create-react-app"
+            content="Post Gay a powerful and simply tool to test API"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png"/>
     <!--
@@ -24,20 +23,34 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>React Window</title>
     <style>
         html, body {
             touch-action: none;
             user-select: none;
             overflow: hidden;
         }
+
+        html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        html, body, #root {
+            height: 100%;
+        }
+
+
     </style>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <script>
-    <!--mark-->
-    window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = {isDisabled: true};
+    <!--window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = {isDisabled: true};-->
 </script>
 <div id="root"></div>
 <!--

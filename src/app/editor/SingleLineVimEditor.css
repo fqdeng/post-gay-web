@@ -1,0 +1,17 @@
+#url-input-ace-editor-wrapper {
+    padding-top: 6px;
+    background-color: white;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+
+    &:hover {
+        border-bottom: 1px solid #4096ff;
+        border-top: 1px solid #4096ff;
+        border-left: 1px solid #4096ff;
+    }
+}
+
+.ace_scroller.ace_scroll-left:after {
+    box-shadow: none; /* remove the shadow */
+}

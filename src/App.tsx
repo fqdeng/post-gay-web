@@ -1,16 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './App.css';
-import Counter from "./counter/Counter";
+import Window, {WindowRef} from "./app/Window";
 
-import {QWebChannel} from "qwebchannel";
-import MessageBoxResult from "./common/MessageBoxResult";
+import {QWebChannel} from "./qt/qwebchannel";
+import QMessageBox from "./common/QMessageBox";
 
 
 interface Python {
-    openFile(): Promise<string>;
 
-    showMessageBox: (title: string, message: string) => Promise<MessageBoxResult>;
+    openFile: (fileTypes: string) => Promise<string>;
+    showMessageBox: (icon: number, title: string, message: string, buttons: number) => Promise<QMessageBox>;
     log: (message: string) => void;
+    saveFile: (file_path: string, file_content: string) => void;
+    readFile: (file_path: string) => Promise<string>;
 }
 
 declare global {
@@ -22,11 +24,29 @@ declare global {
 }
 
 function App() {
+
+    const windowRef = useRef<WindowRef>();
+
     useEffect(() => {
         if (window.app) {
             new QWebChannel(window.qt.webChannelTransport, function (channel: any) {
                 window.python = channel.objects.python;
+                windowRef.current?.pythonWorldInit()
             });
+        } else {
+            const handler: ProxyHandler<any> = {
+                get(target, prop, receiver) {
+                    if (typeof prop === 'string') {
+                        return (...args: any[]) => {
+                            console.log(`method ${prop} has been called with arguments: ${args}`);
+                            alert("it's in browser environment!");
+                            return new Promise((resolve, reject) => {
+                            });
+                        };
+                    }
+                },
+            };
+            window.python = new Proxy({} as Python, handler);
         }
         return () => {
             console.log("unmount app")
@@ -34,7 +54,7 @@ function App() {
     }, []);
     return (
         <div className="App">
-            <Counter/>
+            <Window ref={windowRef}/>
         </div>
     );
 }

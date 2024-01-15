@@ -1,4 +1,4 @@
-enum MessageBoxResult {
+enum QMessageBox {
     Abort = 262144,
     AcceptRole = 0,
     ActionRole = 3,
@@ -43,4 +43,4 @@ enum MessageBoxResult {
     YesToAll = 32768
 }
 
-export default MessageBoxResult;
+export default QMessageBox;

@@ -77,7 +77,7 @@ const Window = forwardRef<WindowRef | undefined>((props, ref) => {
                 <Sider style={{background: colorBgContainer}} width={siderWidth}>
                     <SideCollectionTree ref={sideCollectionTreeRef}/>
                 </Sider>
-                <Layout style={{padding: '0 24px 24px'}}>
+                <Layout style={{padding: '0'}}>
                     <Tables></Tables>
                 </Layout>
             </Layout>

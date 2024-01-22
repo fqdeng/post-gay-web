@@ -3,13 +3,13 @@ import './App.css';
 import Window, {WindowRef} from "./app/Window";
 
 import {QWebChannel} from "./qt/qwebchannel";
-import QMessageBox from "./common/QMessageBox";
+import QMessageBoxEnum from "./common/QMessageBoxEnum";
 
 
 interface Python {
 
     openFile: (fileTypes: string) => Promise<string>;
-    showMessageBox: (icon: number, title: string, message: string, buttons: number) => Promise<QMessageBox>;
+    showMessageBox: (icon: number, title: string, message: string, buttons: number) => Promise<QMessageBoxEnum>;
     log: (message: string) => void;
     saveFile: (file_path: string, file_content: string) => void;
     readFile: (file_path: string) => Promise<string>;

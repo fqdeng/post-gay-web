@@ -15,15 +15,13 @@ const Tables: React.FC = () => {
     ]);
 
     return (
-        <div style={{marginTop: 2}}>
-            <Tabs defaultActiveKey="1">
-                {tabs.map(tab => (
-                    <TabPane tab={tab.title} key={tab.key}>
-                        <Tab id={tab.key}/>
-                    </TabPane>
-                ))}
-            </Tabs>
-        </div>
+        <Tabs defaultActiveKey="1" style={{paddingLeft: 10}}>
+            {tabs.map(tab => (
+                <TabPane tab={tab.title} key={tab.key}>
+                    <Tab id={tab.key}/>
+                </TabPane>
+            ))}
+        </Tabs>
     );
 }
 export default Tables;

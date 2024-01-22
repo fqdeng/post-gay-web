@@ -1,0 +1,4 @@
+
+.ace_scroller.ace_scroll-left:after {
+    box-shadow: none; /* remove the shadow */
+}

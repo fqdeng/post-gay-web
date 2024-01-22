@@ -3,7 +3,7 @@ import {Input, MenuProps, Tree, TreeDataNode, Dropdown, Menu} from 'antd';
 import type {DataNode, TreeProps} from 'antd/es/tree';
 import './SideCollectionTree.css'
 import {v4 as uuidv4} from 'uuid';
-import QMessageBox from "../../common/QMessageBox";
+import QMessageBoxEnum from "../../common/QMessageBoxEnum";
 import {QWebChannel} from "../../qt/qwebchannel";
 import ItemMenu from "./ItemMenu";
 
@@ -217,7 +217,7 @@ const SideCollectionTree =
         function createNode(nodeData: TreeDataNode) {
             let data = [...gData];
             if (nodeData.isLeaf) {
-                window.python.showMessageBox(QMessageBox.Warning, "error", `you can't create a node in leaf node`, QMessageBox.Ok)
+                window.python.showMessageBox(QMessageBoxEnum.Warning, "error", `you can't create a node in leaf node`, QMessageBoxEnum.Ok)
             } else if (nodeData.key) {
                 let uuid = uuidv4();
                 findNode(data, nodeData.key, (item, index, arr) => {

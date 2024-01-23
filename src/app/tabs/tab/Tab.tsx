@@ -53,7 +53,6 @@ const Tab: React.FC<TabProps> = (props: TabProps) => {
             let fetchURL = url
             if (!(fetchURL.startsWith("http://") || fetchURL.startsWith("https://"))) {
                 fetchURL = "http://" + fetchURL
-                return
             }
             //send post request
             fetch(fetchURL, {method: "get"}).then((response) => {

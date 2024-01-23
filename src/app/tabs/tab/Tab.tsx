@@ -26,7 +26,26 @@ const Tab: React.FC<TabProps> = (props: TabProps) => {
             value: 'get',
             label: 'GET',
         },
-
+        {
+            value: 'put',
+            label: 'PUT',
+        },
+        {
+            value: 'delete',
+            label: 'DELETE',
+        },
+        {
+            value: 'patch',
+            label: 'PATCH',
+        },
+        {
+            value: 'head',
+            label: 'HEAD',
+        },
+        {
+            value: 'options',
+            label: 'OPTIONS',
+        },
     ];
 
     const [url, setUrl] = useState("")

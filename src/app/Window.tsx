@@ -8,6 +8,7 @@ import {SearchProps} from "antd/lib/input";
 
 import SideCollectionTree from "./side-menu/SideCollectionTree";
 import Tables from "./tabs/Tabs";
+import GitHubStars from "./github/Github";
 
 const {Header, Content, Sider} = Layout;
 
@@ -71,7 +72,7 @@ const Window = forwardRef<WindowRef | undefined>((props, ref) => {
                         History
                     </Menu.Item>
                 </Menu>
-                <Search placeholder="Search Post Gay" onSearch={onSearch} style={{flex: 1}}/>
+                <GitHubStars repo={"fqdeng/post-gay"}/>
             </Header>
             <Layout>
                 <Sider style={{background: colorBgContainer}} width={siderWidth}>

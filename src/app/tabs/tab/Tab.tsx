@@ -110,7 +110,7 @@ const Tab: React.FC<TabProps> = (props: TabProps) => {
                     </Breadcrumb>
                     <Space.Compact style={{width: '100%', marginBottom: 10}}>
                         <Select defaultValue={options[0].value} options={options} onChange={methodChange}
-                                style={{marginRight: 0, minWidth: 80}}/>
+                                style={{marginRight: 0, minWidth: 100}}/>
                         <SingleLineVimEditor id={props.id} onChange={onChangeURL}/>
                         <Button type="primary" onClick={sendHttp}>Send</Button>
                     </Space.Compact>
